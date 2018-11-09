@@ -1,6 +1,6 @@
 # Pod-Cop - A Utility for Directing Traffic and Controlling Docker Containers
 
-Pod-Cop pairs *Traefik* with *Portainer* to provide scalable reverse-proxy routing of external traffic 
+**Pod-Cop** pairs *Traefik* with *Portainer* to provide scalable reverse-proxy routing of external traffic 
 to Docker containers, and to provide a dashboard for management of said containers.
 
 This technique was lifted largely from https://www.digitalocean.com/community/tutorials/how-to-use-traefik-as-a-reverse-proxy-for-docker-containers-on-ubuntu-16-04
@@ -15,14 +15,14 @@ docker run -d  -v /var/run/docker.sock:/var/run/docker.sock  -v $PWD/traefik.tom
   -l traefik.frontend.rule=Host:traefikx.grinnell.edu  \
   -l traefik.port=8080   --network proxy  --name traefik  traefik:1.3.6-alpine --docker
 ```
-On DGDockerX you can reach the *Traefik* dashboard by visiting `https://traefikx.grinnell.edu`.
+On DGDockerX you can reach the *Traefik* dashboard by visiting [https://traefikx.grinnell.edu](https://traefikx.grinnell.edu).
 
 
-## To launch Portainer...
+## To launch Portainer...There are two ways to create links.
 
 ```
 cd ~/Docker/pod-cop/portainer
 docker-compose up -d
 ```
-On DGDockerX you can reach the *Portainer* dashboard by visiting `https://portinerx.grinnell.edu`.
+On DGDockerX you can reach the *Portainer* dashboard by visiting [https://portainerx.grinnell.edu](https://portainerx.grinnell.edu).
 
