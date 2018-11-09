@@ -5,6 +5,16 @@ to Docker containers, and to provide a dashboard for management of said containe
 
 This technique was lifted largely from https://www.digitalocean.com/community/tutorials/how-to-use-traefik-as-a-reverse-proxy-for-docker-containers-on-ubuntu-16-04
 
+## Cloning This Repository
+
+It's assumed that **Pod-Cop** will reside on your host in a directory named `Docker` under your home directory.  So, to clone this repo it's recommended that you do the following:
+
+```
+mkdir ~/Docker
+cd ~/Docker
+git clone https://github.com/DigitalGrinnell/pod-cop.git
+```
+
 ## To launch Traefik... 
 
 ```
