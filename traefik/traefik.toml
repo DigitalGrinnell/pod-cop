@@ -1,0 +1,25 @@
+# Lifted from https://www.digitalocean.com/community/tutorials/how-to-use-traefik-as-a-reverse-proxy-for-docker-containers-on-ubuntu-16-04
+
+defaultEntryPoints = ["http", "https"]
+
+[web]
+address = ":8080"
+  [web.auth.basic]
+  users = ["admin:$apr1$RMMSQKNr$jLoSehcrWk5usBPZg23VB/"]
+
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+    [entryPoints.http.redirect]
+      entryPoint = "https"
+  [entryPoints.https]
+  address = ":443"
+    [entryPoints.https.tls]
+
+[acme]
+email = "digital@grinnell.edu"
+storage = "acme.json"
+entryPoint = "https"
+onHostRule = true
+onDemand = false
+

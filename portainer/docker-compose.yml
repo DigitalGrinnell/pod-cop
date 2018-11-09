@@ -1,0 +1,27 @@
+# Modified: Friday, November 9, 2018 12:13 PM
+
+version: '3.5'
+
+networks:
+  proxy:
+    external: true
+#  internal:
+#    external: false
+
+services:
+
+  portainer:
+    image: portainer/portainer
+    container_name: "portainer"
+    command: -H unix:///var/run/docker.sock
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - proxy
+#      - internal
+#      - ${NETWORK_PROXY}
+    labels:
+      - traefik.backend=portainer
+      - traefik.port=9000
+      - traefik.frontend.rule=Host:portainerx.grinnell.edu
+      - traefik.docker.network=proxy
