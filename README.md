@@ -15,6 +15,8 @@ docker run -d  -v /var/run/docker.sock:/var/run/docker.sock  -v $PWD/traefik.tom
   -l traefik.frontend.rule=Host:traefikx.grinnell.edu  \
   -l traefik.port=8080   --network proxy  --name traefik  traefik:1.3.6-alpine --docker
 ```
+On DGDockerX you can reach the *Traefik* dashboard by visiting `https://traefikx.grinnell.edu`.
+
 
 ## To launch Portainer...
 
@@ -22,4 +24,5 @@ docker run -d  -v /var/run/docker.sock:/var/run/docker.sock  -v $PWD/traefik.tom
 cd ~/Docker/pod-cop/portainer
 docker-compose up -d
 ```
+On DGDockerX you can reach the *Portainer* dashboard by visiting `https://portinerx.grinnell.edu`.
 
