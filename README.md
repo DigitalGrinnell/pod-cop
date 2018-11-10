@@ -7,18 +7,18 @@ This technique was lifted largely from https://www.digitalocean.com/community/tu
 
 ## Cloning This Repository
 
-It's assumed that **Pod-Cop** will reside on your host in a directory named `Docker` under your home directory.  So, to clone this repo it's recommended that you do the following:
+It's assumed that **Pod-Cop** will reside on your host in a directory named `Stacks` under your home directory.  So, to clone this repo it's recommended that you do the following:
 
 ```
-mkdir ~/Docker
-cd ~/Docker
+mkdir ~/Stacks
+cd ~/Stacks
 git clone https://github.com/DigitalGrinnell/pod-cop.git
 ```
 
 ## To launch Traefik... 
 
 ```
-cd ~/Docker/pod-cop
+cd ~/Stacks/pod-cop
 docker network create proxy
 docker run -d  -v /var/run/docker.sock:/var/run/docker.sock  -v $PWD/traefik.toml:/traefik.toml  \
   -v $PWD/acme.json:/acme.json  -p 80:80  -p 443:443  \
@@ -31,7 +31,7 @@ On DGDockerX you can reach the *Traefik* dashboard by visiting [https://traefikx
 ## To launch Portainer...There are two ways to create links.
 
 ```
-cd ~/Docker/pod-cop/portainer
+cd ~/Stacks/pod-cop/portainer
 docker-compose up -d
 ```
 On DGDockerX you can reach the *Portainer* dashboard by visiting [https://portainerx.grinnell.edu](https://portainerx.grinnell.edu).
