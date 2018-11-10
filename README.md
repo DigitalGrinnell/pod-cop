@@ -14,7 +14,7 @@ It's assumed that **Pod-Cop** will reside on your host in a directory named `Sta
 ```
 mkdir ~/Stacks
 cd ~/Stacks
-git clone https://github.com/DigitalGrinnell/pod-cop.git
+git clone https://github.com/DigitalGrinnell/pod-cop.git -b digital-ocean
 ```
 
 ## To launch Traefik... 
