@@ -17,7 +17,7 @@ address = ":8080"
     [entryPoints.https.tls]
 
 [acme]
-email = "digital@grinnell.edu"
+email = "mark.mcfate@icloud.com"
 storage = "acme.json"
 entryPoint = "https"
 onHostRule = true
