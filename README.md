@@ -3,6 +3,8 @@
 **Pod-Cop** pairs *Traefik* with *Portainer* to provide scalable reverse-proxy routing of external traffic 
 to Docker containers, and to provide a dashboard for management of said containers.
 
+## This is the Digital-Ocean Branch of https://github.com/DigitalGrinnell/pod-cop
+
 This technique was lifted largely from https://www.digitalocean.com/community/tutorials/how-to-use-traefik-as-a-reverse-proxy-for-docker-containers-on-ubuntu-16-04
 
 ## Cloning This Repository
@@ -22,17 +24,17 @@ cd ~/Stacks/pod-cop
 docker network create proxy
 docker run -d  -v /var/run/docker.sock:/var/run/docker.sock  -v $PWD/traefik.toml:/traefik.toml  \
   -v $PWD/acme.json:/acme.json  -p 80:80  -p 443:443  \
-  -l traefik.frontend.rule=Host:traefikx.grinnell.edu  \
+  -l traefik.frontend.rule=Host:traefik.mcfate.family  \
   -l traefik.port=8080   --network proxy  --name traefik  traefik:1.3.6-alpine --docker
 ```
-On DGDockerX you can reach the *Traefik* dashboard by visiting [https://traefikx.grinnell.edu](https://traefikx.grinnell.edu).
+On my DO Docker droplet you can reach the *Traefik* dashboard by visiting [https://traefik.mcfate.family](https://traefik.mcfate.family).
 
 
-## To launch Portainer...There are two ways to create links.
+## To launch Portainer...
 
 ```
 cd ~/Stacks/pod-cop/portainer
 docker-compose up -d
 ```
-On DGDockerX you can reach the *Portainer* dashboard by visiting [https://portainerx.grinnell.edu](https://portainerx.grinnell.edu).
+On my DO Docker droplet you can reach the *Portainer* dashboard by visiting [https://portainer.mcfate.family](https://portainer.mcfate.family).
 
