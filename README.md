@@ -20,7 +20,7 @@ git clone https://github.com/DigitalGrinnell/pod-cop.git -b digital-ocean
 ## To launch Traefik... 
 
 ```
-cd ~/Stacks/pod-cop
+cd ~/Stacks/pod-cop/traefik
 docker network create proxy
 docker run -d  -v /var/run/docker.sock:/var/run/docker.sock  -v $PWD/traefik.toml:/traefik.toml  \
   -v $PWD/acme.json:/acme.json  -p 80:80  -p 443:443  \
