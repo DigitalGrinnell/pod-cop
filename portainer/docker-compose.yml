@@ -19,6 +19,6 @@ services:
     labels:
       - traefik.backend=portainer
       - traefik.port=9000
-      - traefik.frontend.rule=Host:portainerx.grinnell.edu
+      - traefik.frontend.rule=Host:portainer.mcfate.family
       - traefik.docker.network=proxy
       
