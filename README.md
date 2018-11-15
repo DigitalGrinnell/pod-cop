@@ -42,7 +42,7 @@ I can now reach the *Traefik* dashboard on my `static` server by visiting [https
 cd ~/Stacks/pod-cop/portainer
 docker-compose up -d
 ```
-On 'static.grinnell.edu` I can subsequently reach the *Portainer* dashboard by visiting [https://static.grinnell.edu/portainer](https://static.grinnell.edu/portainer).
+On 'static.grinnell.edu` I can subsequently reach the *Portainer* dashboard by visiting [https://static.grinnell.edu/portainer/](https://static.grinnell.edu/portainer/).
 
 Modify the `Host:` and `PathPrefixStrip:` values in following line from `docker-compose.yml` in order to specify a different address for your service:
 
