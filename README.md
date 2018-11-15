@@ -7,7 +7,7 @@ This technique was lifted largely from https://www.digitalocean.com/community/tu
 
 ## Cloning This Repository
 
-It's assumed that **Pod-Cop** will reside on your host in a directory named `Stacks` under your home directory.  So, to clone this repo it's recommended that you do the following:
+It is suggested/assumed that **Pod-Cop** will reside on your host in a directory named `Stacks` under your home directory.  So, to clone this repo it's recommended that you do the following:
 
 ```
 mkdir ~/Stacks
@@ -17,11 +17,15 @@ git clone https://github.com/DigitalGrinnell/pod-cop.git
 
 ## To launch Traefik... 
 
-This assumes that your host has a working DNS entry of as specified in `DNS_NAME=sub.domain.top`.  My example is `static.grinnell.edu`.  Other instances, like yours, will of course need to modify `sub.domain.top`.
+This assumes that your host has a working DNS entry as specified in `DNS_NAME=sub.domain.top`.  My example is `static.grinnell.edu` so my corresponding line reads:  
+
+  - DNS_NAME=static.grinnell.edu
+  
+Other instances, like yours, will of course need to modify `sub.domain.top`.
 
 ```
 cd ~/Stacks/pod-cop
-DNS_NAME=sub.domain.top
+DNS_NAME=sub.domain.top      # <<--- Modify this to match your DNS entry!
 docker network create proxy
 docker run -d  -v /var/run/docker.sock:/var/run/docker.sock  -v $PWD/traefik/traefik.toml:/traefik.toml  \
   -v $PWD/traefik/acme.json:/acme.json  -p 80:80  -p 443:443  \
