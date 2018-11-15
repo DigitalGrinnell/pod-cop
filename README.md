@@ -27,6 +27,7 @@ Other instances, like yours, will of course need to modify `sub.domain.top`.
 cd ~/Stacks/pod-cop
 DNS_NAME=sub.domain.top      # <<--- Modify this to match your DNS entry!
 docker network create proxy
+sudo chmod 600 traefik/acme.json
 docker run -d  -v /var/run/docker.sock:/var/run/docker.sock  -v $PWD/traefik/traefik.toml:/traefik.toml  \
   -v $PWD/traefik/acme.json:/acme.json  -p 80:80  -p 443:443  \
   -l traefik.port=8080   --network proxy  \
