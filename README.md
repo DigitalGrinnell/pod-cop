@@ -17,22 +17,29 @@ git clone https://github.com/DigitalGrinnell/pod-cop.git
 
 ## To launch Traefik... 
 
+This assumes that your host has a working DNS entry of as specified in `DNS_NAME=sub.domain.top`.  My example is `static.grinnell.edu`.  Other instances, like yours, will of course need to modify `sub.domain.top`.
+
 ```
 cd ~/Stacks/pod-cop
+DNS_NAME=sub.domain.top
 docker network create proxy
-docker run -d  -v /var/run/docker.sock:/var/run/docker.sock  -v $PWD/traefik.toml:/traefik.toml  \
-  -v $PWD/acme.json:/acme.json  -p 80:80  -p 443:443  \
-  -l traefik.frontend.rule=Host:traefikx.grinnell.edu  \
-  -l traefik.port=8080   --network proxy  --name traefik  traefik:1.3.6-alpine --docker
+docker run -d  -v /var/run/docker.sock:/var/run/docker.sock  -v $PWD/traefik/traefik.toml:/traefik.toml  \
+  -v $PWD/traefik/acme.json:/acme.json  -p 80:80  -p 443:443  \
+  -l traefik.port=8080   --network proxy  \
+  -l traefik.frontend.rule=Host:${DNS_NAME} --name traefik  traefik:1.3.6-alpine --docker
 ```
-On DGDockerX you can reach the *Traefik* dashboard by visiting [https://traefikx.grinnell.edu](https://traefikx.grinnell.edu).
+I can now reach the *Traefik* dashboard on my `static` server by visiting [https://static.grinnell.edu](https://static.grinnell.edu).
 
 
-## To launch Portainer...There are two ways to create links.
+## To launch Portainer...
 
 ```
 cd ~/Stacks/pod-cop/portainer
 docker-compose up -d
 ```
-On DGDockerX you can reach the *Portainer* dashboard by visiting [https://portainerx.grinnell.edu](https://portainerx.grinnell.edu).
+On 'static.grinnell.edu` I can subsequently reach the *Portainer* dashboard by visiting [https://static.grinnell.edu/portainer](https://static.grinnell.edu/portainer).
+
+Modify the `Host:` and `PathPrefixStrip:` values in following line from `docker-compose.yml` in order to specify a different address for your service:
+
+        - "traefik.frontend.rule=Host:static.grinnell.edu;PathPrefixStrip:/portainer"
 
