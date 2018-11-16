@@ -7,11 +7,11 @@ This technique was lifted largely from https://www.digitalocean.com/community/tu
 
 ## Cloning This Repository
 
-It is suggested/assumed that **Pod-Cop** will reside on your host in a directory named `Stacks` under your home directory.  So, to clone this repo it's recommended that you do the following:
+It is suggested/assumed that **Pod-Cop** will reside on your host in a directory named `pod` (the collective term for a group of whales, get it?) under your home directory.  So, to clone this repo it's recommended that you do the following:
 
 ```
-mkdir ~/Stacks
-cd ~/Stacks
+mkdir ~/pod
+cd ~/pod
 git clone https://github.com/DigitalGrinnell/pod-cop.git
 ```
 
@@ -24,7 +24,7 @@ This assumes that your host has a working DNS entry as specified in `DNS_NAME=su
 Other instances, like yours, will of course need to modify `sub.domain.top`.
 
 ```
-cd ~/Stacks/pod-cop
+cd ~/pod/pod-cop
 DNS_NAME=sub.domain.top      # <<--- Modify this to match your DNS entry!
 docker network create proxy
 sudo chmod 600 traefik/acme.json
@@ -39,7 +39,7 @@ I can now reach the *Traefik* dashboard on my `static` server by visiting [https
 ## To launch Portainer...
 
 ```
-cd ~/Stacks/pod-cop/portainer
+cd ~/pod/pod-cop/portainer
 docker-compose up -d
 ```
 On 'static.grinnell.edu` I can subsequently reach the *Portainer* dashboard by visiting [https://static.grinnell.edu/portainer/](https://static.grinnell.edu/portainer/).
